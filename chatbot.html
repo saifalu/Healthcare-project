@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Virtual assistant</title>
+    <style>
+        .mid{
+            background-color: black;
+            border-radius: 15px;
+            font-size: 23px;
+        }
+        .mid ul{
+            overflow: auto;
+        }
+        .mid li{
+            float: left;
+            list-style: none;
+            padding: 13px 20px;
+        }
+        .mid li a{
+            color: aqua;
+            padding: 13px 20px;
+            text-decoration:none;
+        }
+        .mid li a:hover{
+            color: blue;
+        }
+        body{
+            background-image: url('Img/bot2.jpg');
+            background-size: 100%;
+        }
+        #welcome{
+            color: white;
+        }
+        #hd{
+            padding: 0px 90px;
+            margin: -430px 750px;
+            float: left;
+            color: whitesmoke;
+        }
+
+
+    </style>
+
+</head>
+<body>
+    <center><div id="headingdiv"><h2 id="welcome">MOHSIN HEALTHCARE</h2></div></center>
+
+    <div class="mid">
+<header class="header">
+        <nav class="navbar">
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="Appointment.html">Appointment</a></li>
+                <li><a href="explore commoon deceise.html">Deceises</a></li>
+                <li><a href="hospital locations.html">Hospitals locations</a></li>
+                <li><a href="chatbot.html">Virtual Helper</a></li>
+                <li><a href="Need ambulance.html">Ambulance</a></li>
+                <li><a href="about.html">About</a></li>
+            </ul>
+        </nav>
+    </header>
+    </div>
+    <iframe id="chat" style="width: 800px; height: 400px;" src='https://webchat.botframework.com/embed/healthcareqna-bot?s=n_0a6v9q7uQ.HuczEp2VbqW856f64VZ9i29hqP_S3jEemGbi-QbEDxQ'></iframe>
+    <div id="hd"><h2>This iS a AI based virtual assistant, which is designed to help you. you may ask any question to it.There is a possibility that it may not answer your question, this is because it is under developement.</h2></div>
+</body>
+<script>
+
+    var xhr = new XMLHttpRequest();
+    xhr.open('GET', "https://webchat.botframework.com/api/tokens", true);
+    xhr.setRequestHeader('n_0a6v9q7uQ.HuczEp2VbqW856f64VZ9i29hqP_S3jEemGbi-QbEDxQ', 'BotConnector ' + 'n_0a6v9q7uQ.HuczEp2VbqW856f64VZ9i29hqP_S3jEemGbi-QbEDxQ');
+    xhr.send();
+    xhr.onreadystatechange = processRequest;
+
+    function processRequest(e) {
+      if (xhr.readyState == 4  && xhr.status == 200) {
+        var response = JSON.parse(xhr.responseText);
+        document.getElementById("chat").src="https://webchat.botframework.com/embed/<botname>?t="+response
+      }
+    }
+
+
+  </script>
+</html>
